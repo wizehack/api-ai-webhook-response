@@ -1,3 +1,4 @@
+import sys
 import os
 import json
 from flask import Flask
@@ -41,3 +42,11 @@ def makeEchoResponse(req):
 		"displayText": speech,
 		"source": "apiai-echo-sample"
 	}
+
+
+if __name__ == '__main__':
+	port = int(os.getenv('PORT', 5000))
+
+	print("Starting app on port %d" % port)
+
+	app.run(debug=False, port=port, host='0.0.0.0')
